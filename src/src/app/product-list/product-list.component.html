@@ -1,0 +1,21 @@
+<h2>New Products</h2>
+
+<div *ngFor="let product of products; index as productId">
+
+
+    <a [title]="'Know more about ' + product.name" [routerLink]="['/products' , productId]">
+        <h3>{{product.name}}</h3>
+    </a>
+
+    <p *ngIf="product.description">
+        Description: {{product.description}}
+    </p>
+    <!--This below one is example for the property binding-->
+    <!-- <button class="btn btn-danger" [disabled]="btn">
+        propertybinding
+    </button> -->
+
+    <button (click)="share()">share</button>
+    <app-product-alert [product]="product" (notify)="notify_me()"></app-product-alert>
+
+</div>
